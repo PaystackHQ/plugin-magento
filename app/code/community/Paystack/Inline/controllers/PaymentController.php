@@ -12,13 +12,13 @@
  * @license    https://raw.githubusercontent.com/PaystackHQ/paystack-magento/master/LICENSE   MIT License (MIT)
  */
 
-class Paystack_Inline_PaymentController extends Mage_Core_Controller_Front_Action 
+class Paystack_Inline_PaymentController extends Mage_Core_Controller_Front_Action
 {
-    public function cancelAction() 
+    public function cancelAction()
     {
         Mage::getSingleton('core/session')->addError(
             Mage::helper('paystack_inline')->__("Payment cancelled."));
-        
+
         $session = Mage::getSingleton('checkout/session');
         if ($session->getLastRealOrderId())
         {
@@ -48,7 +48,7 @@ class Paystack_Inline_PaymentController extends Mage_Core_Controller_Front_Actio
         return $this->getResponse()->setRedirect( Mage::getUrl('checkout/onepage'));
     }
 
-    public function popAction() 
+    public function popAction()
     {
         $this->loadLayout();
         $block = $this->getLayout()->createBlock('Mage_Core_Block_Template','paystack_inline',array('template' => 'paystack/pop.phtml'));
@@ -56,18 +56,18 @@ class Paystack_Inline_PaymentController extends Mage_Core_Controller_Front_Actio
         $this->renderLayout();
     }
 
-    public function responseAction() 
+    public function responseAction()
     {
         $success = false;
 
         $orderId = $this->getRequest()->get("orderId");
         $trxref = $this->getRequest()->get("trxref");
-        
+
         // Both are required
         if(!$orderId || !$trxref){
             return;
         }
-        
+
         // trxref must start with orderId by design
         if(strpos($trxref, $orderId) !== 0){
             return;
@@ -92,7 +92,7 @@ class Paystack_Inline_PaymentController extends Mage_Core_Controller_Front_Actio
         }
         elseif($transactionStatus->status == 'success')
         {
-            $order->setState(Mage_Sales_Model_Order::STATE_PAYMENT_REVIEW, true, 'Payment Success.');
+            $order->setState(Mage_Sales_Model_Order::STATE_PROCESSING, true, 'Payment Success.');
             $order->save();
 
             Mage::getSingleton('checkout/session')->unsQuoteId();
@@ -106,13 +106,13 @@ class Paystack_Inline_PaymentController extends Mage_Core_Controller_Front_Actio
 
             Mage::getSingleton('checkout/session')->unsQuoteId();
         }
-    
-        
+
+
         if(!$success){
             Mage::getSingleton('core/session')->addError(
                 Mage::helper('paystack_inline')->__("There was an error processing your payment. Please try again."));
             Mage_Core_Controller_Varien_Action::_redirect('checkout/cart');
         }
-        
+
     }
 }
