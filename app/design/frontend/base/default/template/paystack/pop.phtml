@@ -16,14 +16,15 @@ $params = Mage::helper('paystack_inline')->getFormParams();
 
 // only show popup if parameters were found
 if($params):
-    
+
 ?>
+<form>
 <script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
 //<![CDATA[
     (function(PaystackPop){
         /* Get a random reference number based on the current time
-         * 
+         *
          * gotten from http://stackoverflow.com/a/2117523/671568
          * replaced UUID with REF
          */
@@ -44,7 +45,7 @@ if($params):
            var a = document.createElement('a'), regex = /(?:\?|&amp;|&)+([^=]+)(?:=([^&]*))*/gi;
            var params = {}, match, str = []; a.href = url;
            while (match = regex.exec(a.search))
-               if (encodeURIComponent(param) != match[1]) 
+               if (encodeURIComponent(param) != match[1])
                    str.push(match[1] + (match[2] ? "=" + match[2] : ""));
            str.push(encodeURIComponent(param) + (value ? "=" + encodeURIComponent(value) : ""));
            a.search = str.join("&");
@@ -70,6 +71,7 @@ if($params):
     })(PaystackPop);
 //]]>
 </script>
-<?php 
+</form>
+<?php
 
 endif;
