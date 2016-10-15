@@ -8,15 +8,15 @@ A plugin that allows Magento store owners accept payments using Paystack
 with version 1.9.1 of Magento Community edition onwards. The installation procedure
 described here has been tested on Magento Community version 1.9.1 and 1.9.2
 - Supported Web Servers: Apache and Nginx
-- PHP (5.5.19 or more recent) and extensions, MySQL and web browser
+- PHP (5.3.19 or more recent) and extensions, MySQL and web browser
 - cURL (7.34.0 or more recent)
 - OpenSSL v1.0.1 or more recent
-- For further details of PHP compatibility, MySQL, supported Web servers and other 
+- For further details of PHP compatibility, MySQL, supported Web servers and other
 requirements,refer to the Magento website:[Magento Requirements][link-magento-requirements]
 
 ## Prepare
 
-- Before you can start taking payments through Paystack, you will first need to sign up at: 
+- Before you can start taking payments through Paystack, you will first need to sign up at:
 [https://dashboard.paystack.co/#/signup][link-signup]. To receive live payments, you should request a Go-live after
 you are done with configuration and have successfully made a test payment.
 - Either: Download a released `.tgz` file from the [releases page][link-releases]
@@ -37,7 +37,7 @@ you are done with configuration and have successfully made a test payment.
 
 ### Using Magento Connect
 
-- 
+-
 - Scroll to **Install New Extensions**
 
 ![Install New Extensions](.github/screenshots/install-new-extensions.png?raw=true "Install New Extensions")
@@ -55,14 +55,14 @@ you are done with configuration and have successfully made a test payment.
 
 ## Configure
 
-- In the Magento Admin panel, navigate to the **System** > **Configuration** section 
+- In the Magento Admin panel, navigate to the **System** > **Configuration** section
 and select **Payment Methods** from the Sales section of the left‐hand Configuration menu.
 - Find `Paystack Inline Module` and click the title to expand if not already expanded.
-- Provide your **Test keys** and **Live Keys** as made available on the 
+- Provide your **Test keys** and **Live Keys** as made available on the
 [Paystack Dashboard][link-keys]. Note that the dashboard has no live keys until a successful
 _Go-live_. Not to worry, you can  test the installation by setting `Test Mode` to `Yes`
 and providing only your **Test keys**.
-- You may also change the title of the module specifying what you'd want your customers to 
+- You may also change the title of the module specifying what you'd want your customers to
 see when choosing to pay via Paystack.
 
 ## I'm ready!
