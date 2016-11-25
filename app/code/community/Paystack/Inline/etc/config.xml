@@ -16,7 +16,7 @@
 <config>
   <modules>
     <Paystack_Inline>
-      <version>1.0.0.0</version>
+      <version>1.0.0.6</version>
     </Paystack_Inline>
   </modules>
 
