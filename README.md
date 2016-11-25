@@ -64,7 +64,7 @@ _Go-live_. Not to worry, you can  test the installation by setting `Test Mode` t
 and providing only your **Test keys**.
 - You may also change the title of the module specifying what you'd want your customers to
 see when choosing to pay via Paystack.
-- Set your Webhook URL on your [Paystack Dashboard][link-keys] as advised on the Paystack Configuration Page.
+- Set your Webhook URL on your [Paystack Dashboard][link-keys] to _//your/magento/site/root/paystack/webhook/handler_.
 
 ## I'm ready!
 
