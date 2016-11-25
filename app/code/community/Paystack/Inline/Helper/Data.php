@@ -138,12 +138,12 @@ class Paystack_Inline_Helper_Data extends Mage_Core_Helper_Abstract
                     [
                         "variable_name"=>"paid_via",
                         "display_name"=>"Paid Via",
-                        "value"=>"Magento 1.9",
+                        "value"=>"Magento 1.x",
                     ],
                     [
                         "variable_name"=>"order_id",
                         "display_name"=>"Order ID",
-                        "value"=>$orderId,
+                        "value"=>$transaction->orderId,
                     ],
                 ]
             ]),
