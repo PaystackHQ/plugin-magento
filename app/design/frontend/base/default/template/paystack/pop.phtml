@@ -58,6 +58,20 @@ if($params):
             <?php echo $name; ?>: '<?php echo str_replace(array("'","\n"),array("\\'"," "),$value); ?>',
         <?php endforeach; ?>
                 ref: '<?php echo $params["orderId"]; ?>' + generateREF(),
+                metadata:{
+                    custom_fields:[
+                        {
+                            display_name: "Paid Via",
+                            variable_name: "paid_via",
+                            value: "Magento 1.x"
+                        },
+                        {
+                            display_name: "Order ID",
+                            variable_name: "order_id",
+                            value: '<?php echo $params["orderId"]; ?>'
+                        }
+                    ]
+                },
                 callback: function(response){
                     window.location.href = addParam('<?php echo $params["nextUrl"]; ?>', "reference", response.reference);
                 },

@@ -19,7 +19,7 @@
       <version>1.0.0.0</version>
     </Paystack_Inline>
   </modules>
- 
+
   <global>
 
     <helpers>
@@ -27,19 +27,19 @@
         <class>Paystack_Inline_Helper</class>
       </paystack_inline>
     </helpers>
- 
+
     <blocks>
       <paystack_inline>
         <class>Paystack_Inline_Block</class>
       </paystack_inline>
     </blocks>
-         
+
     <models>
       <paystack_inline>
         <class>Paystack_Inline_Model</class>
       </paystack_inline>
     </models>
- 
+
     <resources>
       <paystack_inline_setup>
         <setup>
@@ -48,7 +48,7 @@
       </paystack_inline_setup>
     </resources>
   </global>
- 
+
   <default>
     <payment>
       <paystack_inline>
@@ -58,6 +58,7 @@
         <title>Debit/Credit Cards (powered by Paystack)</title>
         <allowspecific>0</allowspecific>
         <test_mode>1</test_mode>
+        <use_standard>0</use_standard>
         <secret_key_test>sk_test_xxxx</secret_key_test>
         <public_key_test>pk_test_xxxx</public_key_test>
         <secret_key_live>sk_live_xxxx</secret_key_live>
@@ -66,7 +67,7 @@
       </paystack_inline>
     </payment>
   </default>
-   
+
   <frontend>
     <routers>
       <paystack>

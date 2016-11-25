@@ -19,7 +19,7 @@ class Paystack_Inline_Model_Paymentmethod extends Mage_Payment_Model_Method_Abst
     public function assignData($data)
     {
         $info = $this->getInfoInstance();
- 
+
         return $this;
     }
 
@@ -27,12 +27,12 @@ class Paystack_Inline_Model_Paymentmethod extends Mage_Payment_Model_Method_Abst
     {
         parent::validate();
         $info = $this->getInfoInstance();
- 
+
         return $this;
     }
 
     public function getOrderPlaceRedirectUrl()
     {
-        return Mage::getUrl('paystack/payment/pop');
+        return Mage::getUrl('paystack/payment/' . (Mage::helper('paystack_inline')->shouldUseStandard() ? "redirect" : "pop"));
     }
 }

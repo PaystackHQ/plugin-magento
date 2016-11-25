@@ -18,7 +18,6 @@
     <Paystack_Inline>
       <active>true</active>
       <codePool>community</codePool>
-       
       <depends>
         <Mage_Payment />
       </depends>

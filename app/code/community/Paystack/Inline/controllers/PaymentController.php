@@ -56,6 +56,27 @@ class Paystack_Inline_PaymentController extends Mage_Core_Controller_Front_Actio
         $this->renderLayout();
     }
 
+    public function redirectAction()
+    {
+        $transaction = Mage::helper('paystack_inline')->initializeTransaction();
+        if(!$transaction){
+            return;
+        }
+        if($transaction->error)
+        {
+            Mage::getModel('adminnotification/inbox')->addMajor(
+                Mage::helper('paystack_inline')->__("Error while attempting to initialize transaction for order: " . $transaction->orderId),
+                Mage::helper('paystack_inline')->__($transaction->error),
+                '',
+                true
+            );
+        }
+        else
+        {
+            $this->getResponse()->setRedirect($transaction->authorization_url);
+        }
+    }
+
     public function responseAction()
     {
         $success = false;

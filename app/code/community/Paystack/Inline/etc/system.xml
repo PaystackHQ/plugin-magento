@@ -13,7 +13,7 @@
  * @license    https://raw.githubusercontent.com/PaystackHQ/paystack-magento/master/LICENSE   MIT License (MIT)
  */
 -->
-<config>    
+<config>
   <sections>
     <payment>
       <groups>
@@ -52,6 +52,16 @@
               <show_in_store>0</show_in_store>
               <sort_order>3</sort_order>
             </test_mode>
+            <use_standard translate="label">
+              <label>Use Standard</label>
+              <comment>If you decide to use standard, your customers will be redirected to paystack.com to complete payment. If not, we will use a popup.</comment>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <sort_order>4</sort_order>
+            </use_standard>
             <order_status translate="label">
               <label>New order status</label>
               <frontend_type>select</frontend_type>
@@ -59,7 +69,7 @@
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
               <show_in_store>0</show_in_store>
-              <sort_order>4</sort_order>
+              <sort_order>5</sort_order>
             </order_status>
             <secret_key_test translate="label,comment">
                 <label>Secret Key (Test)</label>
@@ -69,7 +79,7 @@
                 <show_in_default>1</show_in_default>
                 <show_in_website>1</show_in_website>
                 <show_in_store>1</show_in_store>
-                <sort_order>5</sort_order>
+                <sort_order>6</sort_order>
             </secret_key_test>
             <public_key_test translate="label,comment">
                 <label>Public Key (Test)</label>
@@ -79,7 +89,7 @@
                 <show_in_default>1</show_in_default>
                 <show_in_website>1</show_in_website>
                 <show_in_store>1</show_in_store>
-                <sort_order>6</sort_order>
+                <sort_order>7</sort_order>
             </public_key_test>
             <secret_key_live translate="label,comment">
                 <label>Secret Key (Live)</label>
@@ -89,7 +99,7 @@
                 <show_in_default>1</show_in_default>
                 <show_in_website>1</show_in_website>
                 <show_in_store>1</show_in_store>
-                <sort_order>7</sort_order>
+                <sort_order>8</sort_order>
             </secret_key_live>
             <public_key_live translate="label,comment">
                 <label>Public Key (Live)</label>
@@ -99,7 +109,7 @@
                 <show_in_default>1</show_in_default>
                 <show_in_website>1</show_in_website>
                 <show_in_store>1</show_in_store>
-                <sort_order>8</sort_order>
+                <sort_order>9</sort_order>
             </public_key_live>
             <allowspecific translate="label">
               <label>Payment from applicable countries</label>
