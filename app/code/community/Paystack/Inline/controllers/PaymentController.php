@@ -61,15 +61,15 @@ class Paystack_Inline_PaymentController extends Mage_Core_Controller_Front_Actio
         $success = false;
 
         $orderId = $this->getRequest()->get("orderId");
-        $trxref = $this->getRequest()->get("trxref");
+        $reference = $this->getRequest()->get("reference");
 
         // Both are required
-        if(!$orderId || !$trxref){
+        if(!$orderId || !$reference){
             return;
         }
 
-        // trxref must start with orderId by design
-        if(strpos($trxref, $orderId) !== 0){
+        // reference must start with orderId by design
+        if(strpos($reference, $orderId) !== 0){
             return;
         }
 
@@ -80,11 +80,11 @@ class Paystack_Inline_PaymentController extends Mage_Core_Controller_Front_Actio
 
 
         // verify transaction with paystack
-        $transactionStatus = Mage::helper('paystack_inline')->verifyTransaction($trxref);
+        $transactionStatus = Mage::helper('paystack_inline')->verifyTransaction($reference);
         if($transactionStatus->error)
         {
             Mage::getModel('adminnotification/inbox')->addMajor(
-                Mage::helper('paystack_inline')->__("Error while attempting to verify transaction: trxref: " . $trxref),
+                Mage::helper('paystack_inline')->__("Error while attempting to verify transaction: reference: " . $reference),
                 Mage::helper('paystack_inline')->__($transactionStatus->error),
                 '',
                 true

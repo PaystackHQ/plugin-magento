@@ -59,7 +59,7 @@ if($params):
         <?php endforeach; ?>
                 ref: '<?php echo $params["orderId"]; ?>' + generateREF(),
                 callback: function(response){
-                    window.location.href = addParam('<?php echo $params["nextUrl"]; ?>', "trxref", response.trxref);
+                    window.location.href = addParam('<?php echo $params["nextUrl"]; ?>', "reference", response.reference);
                 },
                 onClose: function(){
                     window.location.href = '<?php echo $params["cancelUrl"]; ?>';

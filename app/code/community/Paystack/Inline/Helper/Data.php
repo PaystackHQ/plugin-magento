@@ -36,13 +36,13 @@ class Paystack_Inline_Helper_Data extends Mage_Core_Helper_Abstract
         }
     }
     
-    function verifyTransaction($trxref)
+    function verifyTransaction($reference)
     {
         $ch = curl_init();
         $transactionStatus = new stdClass();
 
         // set url
-        curl_setopt($ch, CURLOPT_URL, "https://api.paystack.co/transaction/verify/" . rawurlencode($trxref));
+        curl_setopt($ch, CURLOPT_URL, "https://api.paystack.co/transaction/verify/" . rawurlencode($reference));
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'Authorization: Bearer '. Paystack_Inline_Helper_Data::getSecretKey()
