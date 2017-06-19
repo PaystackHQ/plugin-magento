@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
     <name>Paystack_Inline</name>
-    <version>1.0.0.1</version>
+    <version>1.0.0.7</version>
     <stability>stable</stability>
     <license uri="https://raw.githubusercontent.com/PaystackHQ/paystack-magento/master/LICENSE">MIT</license>
     <channel>community</channel>

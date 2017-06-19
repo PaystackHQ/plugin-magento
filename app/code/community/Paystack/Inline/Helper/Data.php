@@ -20,7 +20,8 @@ class Paystack_Inline_Helper_Data extends Mage_Core_Helper_Abstract
     const XML_PATH_SECRET_KEY_LIVE  = 'payment/paystack_inline/secret_key_live';
     const XML_PATH_PUBLIC_KEY_TEST  = 'payment/paystack_inline/public_key_test';
     const XML_PATH_SECRET_KEY_TEST  = 'payment/paystack_inline/secret_key_test';
-
+    const XML_PATH_ORDER_STATUS  = 'payment/paystack_inline/order_status';
+   
     function getPublicKey(){
         if(Mage::getStoreConfig(Paystack_Inline_Helper_Data::XML_PATH_TEST_MODE)){
             return trim(Mage::getStoreConfig(Paystack_Inline_Helper_Data::XML_PATH_PUBLIC_KEY_TEST));
@@ -100,8 +101,11 @@ class Paystack_Inline_Helper_Data extends Mage_Core_Helper_Abstract
             } else {
                 // get body returned by Paystack API
                 $transactionStatus = $body->data;
+
             }
         }
+        $order_status = Mage::getStoreConfig(Paystack_Inline_Helper_Data::XML_PATH_ORDER_STATUS);
+        $transactionStatus->order_status = $order_status;
 
         return $transactionStatus;
     }

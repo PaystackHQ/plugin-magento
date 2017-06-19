@@ -113,9 +113,36 @@ class Paystack_Inline_PaymentController extends Mage_Core_Controller_Front_Actio
         }
         elseif($transactionStatus->status == 'success')
         {
-            $order->setState(Mage_Sales_Model_Order::STATE_PROCESSING, true, 'Payment Success.');
-            $order->save();
-
+            // $order->setState(Mage_Sales_Model_Order::STATE_PROCESSING, true, 'Payment Success.');
+            // $order->setState($transactionStatus->order_status, true, 'Payment Success.');
+            // $order->save();
+            switch ($transactionStatus->order_status) {
+                case 'complete':
+                    $order->setData('state', Mage_Sales_Model_Order::STATE_COMPLETE);
+           $order->save();
+                break;
+                case 'pending':
+                   $order->setState(Mage_Sales_Model_Order::STATE_PENDING_PAYMENT, true, 'Payment Success.')->save();
+                break;
+                case 'payment_pa':
+                     $order->setState(Mage_Sales_Model_Order::STATE_NEW, true)->save();
+                break;
+                case 'processing':
+                    $order->setState(Mage_Sales_Model_Order::STATE_PROCESSING, true, 'Payment Success.')->save();
+                break;
+                case 'closed':
+                    $order->setState(Mage_Sales_Model_Order::STATE_CLOSED, true, 'Payment Success.')->save();
+                break;
+                case 'canceled':
+                    $order->setState(Mage_Sales_Model_Order::STATE_CANCELED, true, 'Payment Success.')->save();
+                break;
+                case 'holded':
+                    $order->setState(Mage_Sales_Model_Order::STATE_HOLDED, true, 'Payment Success.')->save();
+                break;
+                default:
+                    $order->setState(Mage_Sales_Model_Order::STATE_PROCESSING, true, 'Payment Success.')->save();
+                    break;
+            }
             Mage::getSingleton('checkout/session')->unsQuoteId();
             Mage_Core_Controller_Varien_Action::_redirect('checkout/onepage/success');
             $success = true;
@@ -131,7 +158,7 @@ class Paystack_Inline_PaymentController extends Mage_Core_Controller_Front_Actio
 
         if(!$success){
             Mage::getSingleton('core/session')->addError(
-                Mage::helper('paystack_inline')->__("There was an error processing your payment. Please try again."));
+                Mage::helper('paystack_inline')->__("There was an error processing your payment. Please try again.".$transactionStatus->order_status));
             Mage_Core_Controller_Varien_Action::_redirect('checkout/cart');
         }
 
