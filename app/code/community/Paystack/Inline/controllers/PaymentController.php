@@ -151,6 +151,7 @@ class Paystack_Inline_PaymentController extends Mage_Core_Controller_Front_Actio
         {
             $order->setState(Mage_Sales_Model_Order::STATE_PAYMENT_REVIEW, true, $transactionStatus->status);
             $order->save();
+            $order->sendNewOrderEmail();
 
             Mage::getSingleton('checkout/session')->unsQuoteId();
         }
