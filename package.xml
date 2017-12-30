@@ -7,8 +7,34 @@
     <channel>community</channel>
     <extends/>
     <summary>We help Nigerian businesses accept Mastercard, Visa and Verve cards safely from anyone, anywhere in the world.</summary>
-    <description>We help Nigerian businesses accept Mastercard, Visa and Verve cards safely from anyone, anywhere in the world. Increase sales, reduce risk, and save money with credit card processing from Paystack and Magento. This Paystack extension connects your Magento store to the growing leader in African payments. Paystack helps increase sales, reduce risk, and deliver a better customer experience. Merchants can now go to their Paystack account see all transactions.</description>
-    <notes>1.0.0.1&#xD;
+    <description>We help Nigerian businesses accept Mastercard, Visa and Verve cards safely from anyone, anywhere in the world.</description>
+    <notes>1.0.0.7&#xD;
+2017-12-30&#xD;
+Send email on new order&#xD;
+Set order status after payment based on settings&#xD;
+&#xD;
+1.0.0.6&#xD;
+2016-11-25&#xD;
+Add Webhook handling&#xD;
+Add option to use standard&#xD;
+&#xD;
+1.0.0.5&#xD;
+2016-10-14&#xD;
+Allow PHP version 5.3.19 and above&#xD;
+&#xD;
+1.0.0.4&#xD;
+2016-09-12&#xD;
+Add a form tag around popup script&#xD;
+&#xD;
+1.0.0.3&#xD;
+2016-09-09&#xD;
+Default to payment accepted on success&#xD;
+&#xD;
+1.0.0.2&#xD;
+2016-06-08&#xD;
+Restore Quote on cancel&#xD;
+&#xD;
+1.0.0.1&#xD;
 2016-06-08&#xD;
 Trim keys before use&#xD;
 &#xD;
@@ -16,9 +42,9 @@ Trim keys before use&#xD;
 2016-03-16&#xD;
 First Release</notes>
     <authors><author><name>Ibrahim Lawal</name><user>ibrahimlawal</user><email>ibrahim@paystack.com</email></author></authors>
-    <date>2016-06-08</date>
-    <time>10:49:25</time>
-    <contents><target name="magecommunity"><dir name="Paystack"><dir name="Inline"><dir name="Block"><dir name="Form"><file name="Inline.php" hash="eb92ed8584b2fba5330de8eb063e97e0"/></dir><dir name="Info"><file name="Inline.php" hash="dbb93891c61a2420b86d8e37194b9b4b"/></dir></dir><dir name="Helper"><file name="Data.php" hash="2b329a55391ba5ba6793bb2e355da514"/></dir><dir name="Model"><file name="Paymentmethod.php" hash="0b7597dcc7859d97c88628119eaa8645"/></dir><dir name="controllers"><file name="PaymentController.php" hash="b47bdc085080c77c87710c7df07a8f3b"/></dir><dir name="etc"><file name="config.xml" hash="032f08010922d352541021df64f8827d"/><file name="system.xml" hash="a7c471a97f887c0d1148978cc082dedc"/></dir><dir name="sql"><dir name="paystack_inline_setup"><file name="install-1.0.0.0.php" hash="01994aebd63ed6997ffcb476be6108d8"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Paystack_Inline.xml" hash="735e0f5b7348ebe5b028a3c88158ed42"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="paystack"><dir name="form"><file name="paystack_inline.phtml" hash="10ed15b6469445c94b7db3b3041f19b2"/></dir><file name="pop.phtml" hash="ab22f531fc1e8b7b17c2b7fefe5b8727"/></dir></dir></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="paystack"><dir name="images"><file name="feeda2f4911730d90b3497e11f1fdca04d9d.png" hash="df6802c191da9658e325d53ebe3da4a2"/><file name="paystack.png" hash="aae836ee78c15ec3cc00c0d447c5197f"/></dir></dir></dir></dir></dir></target></contents>
+    <date>2017-12-30</date>
+    <time>09:08:33</time>
+    <contents><target name="magecommunity"><dir name="Paystack"><dir name="Inline"><dir name="Block"><dir name="Form"><file name="Inline.php" hash="22199f9f3fba7e5b6702de7cf6f3d00b"/></dir><dir name="Info"><file name="Inline.php" hash="7778a9060ffe04168a3842bafe37b5f9"/></dir></dir><dir name="Helper"><file name="Data.php" hash="8f925066b54a2a396793a0adfedcd234"/></dir><dir name="Model"><file name="Paymentmethod.php" hash="4f69a8c5b9c54ae1d7278c5917a15d99"/></dir><dir name="controllers"><file name="PaymentController.php" hash="6cdc926880e139dbbc3f1e5c4314e153"/><file name="WebhookController.php" hash="24037f2c9ca2f112530b87c2c5a236c5"/></dir><dir name="etc"><file name="config.xml" hash="e227706239e34e496fb58454652c7dc8"/><file name="system.xml" hash="209be04fdc650272e7a66d6a2e0e4311"/></dir><dir name="sql"><dir name="paystack_inline_setup"><file name="install-1.0.0.0.php" hash="b4e93c2dc723ca900a51e409442d2ab1"/></dir></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="paystack"><dir name="images"><file name="paystack.png" hash="a33df49cdc1760aa7ce9d46f48abed0c"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Paystack_Inline.xml" hash="4bcbae00102d96f1fa312076bd57dded"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="paystack"><dir name="form"><file name="paystack_inline.phtml" hash="61662818f2811be7bd94a812537ff265"/><file name="paystack_inline.phtml" hash="61662818f2811be7bd94a812537ff265"/></dir><file name="pop.phtml" hash="d2a1a500705d49ab42556127d23b3332"/></dir></dir></dir></dir></dir></target><target name="magelocal"><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="paystack"><file name="pop,phtml" hash=""/></dir></dir></dir></dir></dir></target></contents>
     <compatible/>
-    <dependencies><required><php><min>5.4.0</min><max>10.0.0</max></php></required></dependencies>
+    <dependencies><required><php><min>5.3.19</min><max>7.0.0</max></php></required></dependencies>
 </package>
