@@ -119,13 +119,13 @@ class Paystack_Inline_PaymentController extends Mage_Core_Controller_Front_Actio
             switch ($transactionStatus->order_status) {
                 case 'complete':
                     $order->setData('state', Mage_Sales_Model_Order::STATE_COMPLETE);
-           $order->save();
+                    $order->save();
                 break;
                 case 'pending':
                    $order->setState(Mage_Sales_Model_Order::STATE_PENDING_PAYMENT, true, 'Payment Success.')->save();
                 break;
                 case 'payment_pa':
-                     $order->setState(Mage_Sales_Model_Order::STATE_NEW, true)->save();
+                    $order->setState(Mage_Sales_Model_Order::STATE_NEW, true)->save();
                 break;
                 case 'processing':
                     $order->setState(Mage_Sales_Model_Order::STATE_PROCESSING, true, 'Payment Success.')->save();
@@ -145,6 +145,7 @@ class Paystack_Inline_PaymentController extends Mage_Core_Controller_Front_Actio
             }
             Mage::getSingleton('checkout/session')->unsQuoteId();
             Mage_Core_Controller_Varien_Action::_redirect('checkout/onepage/success');
+            $order->sendNewOrderEmail();
             $success = true;
         }
         else
