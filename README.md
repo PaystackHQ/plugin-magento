@@ -2,7 +2,7 @@
 
 A plugin that allows Magento store owners accept payments using Paystack
 
-## **Deprecation Notice**
+##  **Deprecation Notice** :warning:
 
 We regret to inform you that the Paystack Magento Plugin is now deprecated and will no longer be actively maintained or supported.
 
